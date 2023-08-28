@@ -8,11 +8,11 @@ function StackNavigation() {
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator>
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Login"
         component={Login}
         options={{headerShown: false}}
-      />
+      /> */}
       <Stack.Screen
         name="BottomNavigator"
         component={BottomNavigator}

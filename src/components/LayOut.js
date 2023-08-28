@@ -2,26 +2,44 @@ import React, {useRef, useState} from 'react';
 import {View, Text, Animated, TouchableOpacity, Platform} from 'react-native';
 import image from '../../assets/officePlan.png';
 function LayOut() {
-  const [width] = useState(new Animated.Value(600));
-  const [height] = useState(new Animated.Value(600));
+  const [width] = useState(new Animated.Value(400));
+  const [height] = useState(new Animated.Value(400));
   const [left] = useState(new Animated.Value(250));
 
   const onPress = () => {
-    Animated.spring(width, {toValue: width._value + 100}).start();
-    Animated.spring(height, {toValue: height._value + 100}).start();
+    Animated.spring(width, {
+      toValue: width._value + 100,
+      useNativeDriver: false,
+    }).start();
+    Animated.spring(height, {
+      toValue: height._value + 100,
+      useNativeDriver: false,
+    }).start();
   };
 
   const onPressDec = () => {
-    Animated.spring(width, {toValue: width._value - 100}).start();
-    Animated.spring(height, {toValue: height._value - 100}).start();
+    Animated.spring(width, {
+      toValue: width._value - 100,
+      useNativeDriver: false,
+    }).start();
+    Animated.spring(height, {
+      toValue: height._value - 100,
+      useNativeDriver: false,
+    }).start();
   };
 
   const onPressLeft = () => {
-    Animated.spring(left, {toValue: left._value - 40}).start();
+    Animated.spring(left, {
+      toValue: left._value - 40,
+      useNativeDriver: false,
+    }).start();
   };
 
   const onPressRight = () => {
-    Animated.spring(left, {toValue: left._value + 40}).start();
+    Animated.spring(left, {
+      toValue: left._value + 40,
+      useNativeDriver: false,
+    }).start();
   };
 
   const os = Platform.OS;
@@ -97,8 +115,8 @@ function LayOut() {
           position: 'absolute',
           display: 'flex',
           flexDirection: 'row',
-          // borderWidth: 1,
-          width: '10%',
+
+          width: '5%',
           height: '40%',
           right: '0%',
         }}>
@@ -119,11 +137,10 @@ function LayOut() {
         <TouchableOpacity
           style={{
             position: 'absolute',
-            right: 1,
+            right: '1%',
             width: 30,
             height: 30,
             top: 40,
-
             backgroundColor: '#e6e6e6',
             alignItems: 'center',
             justifyContent: 'center',
@@ -134,26 +151,30 @@ function LayOut() {
         <TouchableOpacity
           style={{
             position: 'absolute',
-            top: 100,
-            left: 60,
-            borderWidth: 1,
-            width: 50,
+            top: 80,
+            right: '1%',
+            width: 30,
+            height: 30,
             backgroundColor: '#e6e6e6',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
           onPress={onPressLeft}>
-          <Text style={{color: 'black'}}>Left</Text>
+          <Text style={{color: 'black'}}>{'<-'}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={{
             position: 'absolute',
-            top: 150,
-            right: 60,
-            borderWidth: 1,
-            width: 50,
+            top: 120,
+            right: '1%',
+            width: 30,
+            height: 30,
             backgroundColor: '#e6e6e6',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
           onPress={onPressRight}>
-          <Text style={{color: 'black'}}>Right</Text>
+          <Text style={{color: 'black'}}>{'->'}</Text>
         </TouchableOpacity>
       </View>
     </View>

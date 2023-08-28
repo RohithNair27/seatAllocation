@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import CheckInOut from '../components/CheckInOut';
 import ZoneButton from '../components/ZoneButton';
 import LayOut from '../components/LayOut';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import image from '../../assets/personIcon.png';
 function Home() {
   const [isEnable, setIsEnabled] = useState(true);
   const [isZoneSeleted, setIsZoneSelected] = useState({
@@ -45,8 +46,19 @@ function Home() {
   }
   return (
     <View style={styles.body}>
-      <Icon name="person-circle" size={100} color="black" />
-      <Text style={styles.seatAllocationText}>Seat Allocation</Text>
+      <View style={styles.headingText}>
+        <Text style={styles.seatAllocationText}>Seat Allocation</Text>
+        <Text style={styles.seatAllocationText2}>Book your seats</Text>
+      </View>
+      <View style={styles.logOutHeader}>
+        <Text style={styles.logOutWelcomeText}>Welcome Rohith K!</Text>
+        <TouchableOpacity style={styles.logOutHeaderImage}>
+          <Image
+            source={{uri: image}}
+            style={{resizeMode: 'contain', height: '100%'}}
+          />
+        </TouchableOpacity>
+      </View>
       <View style={styles.checkInCard}>
         <CheckInOut enabled={isEnable} toggleFuntion={toggleFuntion} />
       </View>
@@ -91,24 +103,49 @@ const styles = StyleSheet.create({
   seatAllocationText: {
     color: 'rgb(149,16,172)',
     fontSize: 25,
-    fontWeight: 500,
-    top: '2%',
-    left: '4%',
+    fontWeight: 600,
   },
+  seatAllocationText2: {
+    fontWeight: '500',
+  },
+  headingText: {
+    width: '15%',
+    left: '10%',
+    top: '2%',
+  },
+
+  logOutHeader: {
+    height: '10%',
+    bottom: '5%',
+    left: '77%',
+    width: '20%',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  logOutWelcomeText: {fontWeight: '700', fontSize: 17, left: '18%'},
+  logOutHeaderImage: {
+    padding: 10,
+    height: '60%',
+    backgroundColor: '#e6e6e6',
+    width: '15%',
+    borderRadius: 50,
+    left: '30%',
+  },
+
   checkInCard: {
     width: '20%',
-    height: '30%',
+    height: '28%',
     position: 'absolute',
     left: '2%',
     top: '25%',
   },
   zoneCardBody: {
     position: 'absolute',
-    height: '40%',
+    height: '43%',
     width: '20%',
 
     left: '2%',
-    top: '57%',
+    top: '55%',
     paddingLeft: 10,
     paddingRight: 10,
     backgroundColor: '#e6e6e6',

@@ -2,7 +2,10 @@ import React from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 function TextBar({placeHolder}) {
   return (
-    <TextInput placeholder={placeHolder} style={styles.textInput}></TextInput>
+    <TextInput
+      placeholder={placeHolder}
+      style={styles.textInput}
+      placeholderTextColor={'black'}></TextInput>
   );
 }
 const styles = StyleSheet.create({

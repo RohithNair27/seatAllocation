@@ -1,25 +1,43 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, Switch} from 'react-native';
-function CheckInOut({enabled, toggleFuntion}) {
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Switch,
+  Platform,
+} from 'react-native';
+import ToggleButton from './ToggleButton';
+function CheckInOut({enabled, toggleFuntion, closeModel}) {
   return (
     <View style={styles.body}>
-      <Text style={styles.Data}>Seat No: 123</Text>
-      <Text style={styles.Data}>Cubicle: 6</Text>
-      <Text style={styles.Data}>Zone: 10</Text>
-      <Text style={styles.Data}>Timings: 10am - 9pm</Text>
-      <Text style={styles.Data}>Date: 20/08/2023</Text>
-      <View style={styles.toggleBody}>
-        <Text style={styles.checkInText}>Check In</Text>
-        <Switch
+      <View style={styles.dataBody}>
+        <Text>Seat Number</Text>
+        <Text>Cublicale</Text>
+        <Text>Zone</Text>
+        <Text>Timings</Text>
+        <Text>Date</Text>
+      </View>
+      <View style={styles.switchContainer}>
+        {/* <Switch
           value={enabled}
           onValueChange={() => toggleFuntion()}
           trackColor={{false: 'white', true: 'rgb(149,16,172)'}}
-          style={styles.toggleButton}
           activeThumbColor="white"
           thumbColor={'rgb(149,16,172)'}
-        />
-        <Text style={styles.checkOutText}>Check Out</Text>
+          barHeight={50}
+        /> */}
+        <ToggleButton />
       </View>
+      {Platform.OS === 'web' ? null : (
+        <TouchableOpacity
+          style={styles.modelCloseButton}
+          onPress={() => {
+            closeModel();
+          }}>
+          <Text>X</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }
@@ -28,6 +46,16 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: '#f4e6f6',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  dataBody: {
+    position: 'absolute',
+    // borderWidth: 1,
+    width: '80%',
+    height: '70%',
+    top: '5%',
   },
   Data: {
     fontSize: 18,
@@ -36,13 +64,28 @@ const styles = StyleSheet.create({
     left: '10%',
     margin: 3,
   },
-  toggleBody: {
-    flexDirection: 'row-reverse',
-    right: '23%',
-    top: '10%',
+  switchContainer: {
+    // borderWidth: 1,
+    width: '30%',
+    top: '30%',
+    height: '20%',
+    alignItems: 'center',
   },
   toggleButton: {
-    height: 30,
+    top: '40%',
+    ...Platform.select({
+      web: {
+        height: 30,
+      },
+      default: {},
+    }),
+  },
+  modelCloseButton: {
+    backgroundColor: 'red',
+    position: 'relative',
+    width: '20%',
+    bottom: '51%',
+    left: '39%',
   },
   checkOutText: {
     fontSize: 15,

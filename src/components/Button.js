@@ -1,15 +1,21 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Pressable,
+} from 'react-native';
 
 function Button({placeHolder, navigate}) {
   return (
-    <TouchableOpacity
+    <Pressable
       style={styles.body}
       onPress={() => {
         navigate();
       }}>
       <Text style={styles.buttonText}>{placeHolder}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 }
 const styles = StyleSheet.create({
