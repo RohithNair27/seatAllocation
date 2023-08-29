@@ -9,7 +9,8 @@ function ZoneButton({zoneText, selectZone, zone}) {
         selectZone(zoneText);
       }}>
       <Text style={styles.zoneText}>{zoneText}</Text>
-      <Text style={styles.deskText}>{`74 desks  3 seats avaiblable`}</Text>
+      <Text
+        style={styles.deskText}>{`74 desks           3 seats avaiblable`}</Text>
       <View style={styles.images}>
         <View style={styles.logOutHeaderImage}>
           <Image
@@ -47,33 +48,37 @@ const styles = StyleSheet.create({
   },
   zoneText: {
     left: '3%',
-    fontWeight: '800',
+    fontSize: 17,
+    fontWeight: '700',
   },
   logOutHeaderImage: {
-    padding: 10,
-    height: '90%',
+    padding: 7,
+    height: '70%',
     backgroundColor: '#d1d1d1',
-    width: '15%',
-    borderRadius: 50,
-    left: '5%',
-    margin: 2,
-    bottom: '10%',
+    width: '11%',
+    borderRadius: 20,
+
+    margin: 5,
   },
   deskText: {
-    color: '#A9A9A9',
-    fontWeight: '700',
+    color: '#808080',
+    fontWeight: '500',
+
     top: '5%',
     left: '3%',
   },
   images: {
     // borderWidth: 1,
-    height: '50%',
-    top: '14%',
+    height: '45%',
+    top: '13%',
+    alignItems: 'center',
+    left: '2%',
     flexDirection: 'row',
   },
   availableText: {
-    left: '10%',
-    top: '20%',
+    left: '7%',
+    fontWeight: 650,
+    fontSize: 13,
   },
 });
 export default ZoneButton;

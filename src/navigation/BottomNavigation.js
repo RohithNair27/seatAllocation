@@ -59,11 +59,11 @@ const TabBarStyles = {
   ...Platform.select({
     web: {
       position: 'absolute',
-      top: '12%',
+      top: '11%',
       backgroundColor: '#f4e6f6',
       width: '95%',
       left: '2%',
-      height: '12%',
+      height: '9%',
     },
     default: {
       position: 'absolute',
@@ -80,7 +80,8 @@ const TabBarStyles = {
 const tabBarLabelStyles = {
   ...Platform.select({
     web: {
-      fontSize: 25,
+      fontSize: 23,
+      right: 30,
       color: 'black',
       fontWeight: 500,
     },

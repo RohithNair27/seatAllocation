@@ -6,28 +6,36 @@ import {
   StyleSheet,
   Switch,
   Platform,
+  Pressable,
 } from 'react-native';
 import ToggleButton from './ToggleButton';
 function CheckInOut({enabled, toggleFuntion, closeModel}) {
   return (
     <View style={styles.body}>
       <View style={styles.dataBody}>
-        <Text>Seat Number</Text>
-        <Text>Cublicale</Text>
-        <Text>Zone</Text>
-        <Text>Timings</Text>
-        <Text>Date</Text>
+        <Text style={styles.Data}>
+          Seat Number: <Text style={styles.Value}>WS2</Text>
+        </Text>
+        <Text style={styles.Data}>
+          Cublicale: <Text style={styles.Value}>1</Text>
+        </Text>
+        <Text style={styles.Data}>
+          Zone: <Text style={styles.Value}>C</Text>
+        </Text>
+        <Text style={styles.Data}>
+          Timings: <Text style={styles.Value}>10AM - 6PM</Text>
+        </Text>
+        <Text style={styles.Data}>
+          Date: <Text style={styles.Value}>30/09/2023</Text>
+        </Text>
       </View>
+      <Pressable style={styles.cancelButton}>
+        <Text style={styles.cancelText}>Cancel</Text>
+      </Pressable>
       <View style={styles.switchContainer}>
-        {/* <Switch
-          value={enabled}
-          onValueChange={() => toggleFuntion()}
-          trackColor={{false: 'white', true: 'rgb(149,16,172)'}}
-          activeThumbColor="white"
-          thumbColor={'rgb(149,16,172)'}
-          barHeight={50}
-        /> */}
+        <Text style={{...styles.checkInText, right: '5%'}}>Check In</Text>
         <ToggleButton />
+        <Text style={{...styles.checkInText, left: '5%'}}>Check out</Text>
       </View>
       {Platform.OS === 'web' ? null : (
         <TouchableOpacity
@@ -52,33 +60,47 @@ const styles = StyleSheet.create({
   },
   dataBody: {
     position: 'absolute',
-    // borderWidth: 1,
+
     width: '80%',
-    height: '70%',
+    height: '60%',
     top: '5%',
   },
   Data: {
-    fontSize: 18,
-    fontWeight: 500,
-    position: 'relative',
-    left: '10%',
+    fontSize: 13,
+    fontWeight: 700,
+
+    margin: 3,
+  },
+  Value: {
+    fontSize: 13,
+    fontWeight: 450,
+
     margin: 3,
   },
   switchContainer: {
     // borderWidth: 1,
-    width: '30%',
-    top: '30%',
+    width: '80%',
+    top: '28%',
     height: '20%',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
-  toggleButton: {
-    top: '40%',
-    ...Platform.select({
-      web: {
-        height: 30,
-      },
-      default: {},
-    }),
+  cancelButton: {
+    position: 'relative',
+    left: '30%',
+    bottom: '25%',
+    borderWidth: 1,
+    width: '30%',
+    height: '13%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: 'orange',
+    backgroundColor: 'white',
+  },
+  cancelText: {
+    color: 'orange',
+    fontWeight: 600,
   },
   modelCloseButton: {
     backgroundColor: 'red',
@@ -87,15 +109,10 @@ const styles = StyleSheet.create({
     bottom: '51%',
     left: '39%',
   },
-  checkOutText: {
-    fontSize: 15,
-    fontWeight: 800,
-    right: '6%',
-  },
+
   checkInText: {
-    fontSize: 15,
-    fontWeight: 800,
-    left: '6%',
+    fontSize: 16,
+    fontWeight: 650,
   },
 });
 export default CheckInOut;

@@ -5,6 +5,7 @@ import ZoneButton from '../components/ZoneButton';
 import LayOut from '../components/LayOut';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import image from '../../assets/personIcon.png';
+import icon from '../../assets/AppIcon.png';
 function Home() {
   const [isEnable, setIsEnabled] = useState(true);
   const [isZoneSeleted, setIsZoneSelected] = useState({
@@ -49,6 +50,15 @@ function Home() {
       <View style={styles.headingText}>
         <Text style={styles.seatAllocationText}>Seat Allocation</Text>
         <Text style={styles.seatAllocationText2}>Book your seats</Text>
+        <Image
+          source={{uri: icon}}
+          style={{
+            resizeMode: 'contain',
+            height: '100%',
+            right: '70%',
+            bottom: '90%',
+          }}
+        />
       </View>
       <View style={styles.logOutHeader}>
         <Text style={styles.logOutWelcomeText}>Welcome Rohith K!</Text>
@@ -137,15 +147,15 @@ const styles = StyleSheet.create({
     height: '28%',
     position: 'absolute',
     left: '2%',
-    top: '25%',
+    top: '21%',
   },
   zoneCardBody: {
     position: 'absolute',
-    height: '43%',
+    height: '48%',
     width: '20%',
 
     left: '2%',
-    top: '55%',
+    top: '50%',
     paddingLeft: 10,
     paddingRight: 10,
     backgroundColor: '#e6e6e6',
