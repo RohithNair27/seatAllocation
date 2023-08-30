@@ -3,7 +3,6 @@ import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import CheckInOut from '../components/CheckInOut';
 import ZoneButton from '../components/ZoneButton';
 import LayOut from '../components/LayOut';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import image from '../../assets/personIcon.png';
 import icon from '../../assets/AppIcon.png';
 function Home() {
@@ -132,7 +131,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  logOutWelcomeText: {fontWeight: '700', fontSize: 17, left: '18%'},
+  logOutWelcomeText: {fontWeight: '650', fontSize: 16, left: '18%'},
   logOutHeaderImage: {
     padding: 10,
     height: '60%',
@@ -148,6 +147,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: '2%',
     top: '21%',
+    backgroundColor: '#f4e6f6',
   },
   zoneCardBody: {
     position: 'absolute',

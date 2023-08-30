@@ -1,9 +1,16 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, Modal} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Modal,
+  StatusBar,
+} from 'react-native';
 import CheckInOut from '../components/CheckInOut';
 import ZoneButton from '../components/ZoneButton';
 import LayOut from '../components/LayOut';
-
+import ToggleButton from '../components/ToggleButton';
 function Home() {
   const [isEnable, setIsEnabled] = useState(true);
   const [modelEnabled, setModelEnabled] = useState(true);
@@ -49,15 +56,14 @@ function Home() {
   }
   return (
     <View style={styles.body}>
-      <Text style={styles.seatAllocationText}>Seat Allocation</Text>
-      <Text>Book your seats</Text>
+      <StatusBar backgroundColor={'#f4f4f4'} hidden={false} />
+      <View style={styles.seatAllocationTextBody}>
+        <Text style={styles.seatAllocationText}>Seat Allocation</Text>
+        <Text style={styles.seatAllocationText2}>Book your seats</Text>
+      </View>
       <Modal animationType="slide" transparent={true} visible={modelEnabled}>
         <View style={styles.modelView}>
-          <CheckInOut
-            enabled={isEnable}
-            toggleFuntion={toggleFuntion}
-            closeModel={closeModel}
-          />
+          <CheckInOut closeModel={closeModel} />
         </View>
       </Modal>
 
@@ -78,8 +84,13 @@ const styles = StyleSheet.create({
   seatAllocationText: {
     color: 'rgb(149,16,172)',
     fontSize: 25,
-
-    top: '2%',
+  },
+  seatAllocationText2: {
+    color: 'black',
+  },
+  seatAllocationTextBody: {
+    position: 'absolute',
+    top: '1%',
     left: '4%',
   },
   checkInCard: {
@@ -124,9 +135,12 @@ const styles = StyleSheet.create({
 
   modelView: {
     height: '40%',
-    width: '70%',
-    left: '15%',
-    top: '15%',
+    width: '80%',
+    left: '10%',
+    top: '25%',
+
+    borderRadius: 20,
+    backgroundColor: '#f4e6f6',
   },
   layout: {
     position: 'absolute',

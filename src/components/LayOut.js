@@ -2,9 +2,18 @@ import React, {useRef, useState} from 'react';
 import {View, Text, Animated, TouchableOpacity, Platform} from 'react-native';
 import image from '../../assets/officePlan.png';
 function LayOut() {
-  const [width] = useState(new Animated.Value(400));
-  const [height] = useState(new Animated.Value(400));
-  const [left] = useState(new Animated.Value(250));
+  let width;
+  let height;
+  let left;
+  if (Platform.OS === 'web') {
+    width = useRef(new Animated.Value(400)).current;
+    height = useRef(new Animated.Value(400)).current;
+    left = useRef(new Animated.Value(250)).current;
+  } else {
+    width = useRef(new Animated.Value(300)).current;
+    height = useRef(new Animated.Value(300)).current;
+    left = useRef(new Animated.Value(20)).current;
+  }
 
   const onPress = () => {
     Animated.spring(width, {
@@ -82,10 +91,10 @@ function LayOut() {
             width: 15,
             borderRadius: 60,
             height: 15,
-            borderWidth: 1,
+            // borderWidth: 1,
             position: 'absolute',
             bottom: '40%',
-            left: '6%',
+            left: '8%',
           }}></TouchableOpacity>
         <TouchableOpacity
           style={{
@@ -95,8 +104,8 @@ function LayOut() {
             height: 15,
             borderWidth: 1,
             position: 'absolute',
-            bottom: '60%',
-            left: '6%',
+            bottom: '57%',
+            left: '9%',
           }}></TouchableOpacity>
         <TouchableOpacity
           style={{
@@ -104,10 +113,43 @@ function LayOut() {
             width: 15,
             borderRadius: 60,
             height: 15,
-            borderWidth: 1,
+
             position: 'absolute',
             bottom: '40%',
             left: '24%',
+          }}></TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            backgroundColor: 'red',
+            width: 15,
+            borderRadius: 60,
+            height: 15,
+
+            position: 'absolute',
+            bottom: '57%',
+            left: '24%',
+          }}></TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            backgroundColor: 'red',
+            width: 15,
+            borderRadius: 60,
+            height: 15,
+
+            position: 'absolute',
+            bottom: '57%',
+            left: '38%',
+          }}></TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            backgroundColor: 'yellow',
+            width: 15,
+            borderRadius: 60,
+            height: 15,
+
+            position: 'absolute',
+            bottom: '40%',
+            left: '38%',
           }}></TouchableOpacity>
       </Animated.View>
       <View

@@ -45,13 +45,6 @@ function BottomNavigator() {
           tabBarLabel: 'Meeting Room Booking',
         }}
       />
-      {/* <Tab.Screen
-        name="VeiwLogs"
-        component={VeiwLogs}
-        options={{
-          tabBarLabel: 'View Logs',
-        }}
-      /> */}
     </Tab.Navigator>
   );
 }

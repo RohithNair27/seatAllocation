@@ -9,7 +9,7 @@ import {
   Pressable,
 } from 'react-native';
 import ToggleButton from './ToggleButton';
-function CheckInOut({enabled, toggleFuntion, closeModel}) {
+function CheckInOut({closeModel}) {
   return (
     <View style={styles.body}>
       <View style={styles.dataBody}>
@@ -53,43 +53,84 @@ const styles = StyleSheet.create({
   body: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#f4e6f6',
+
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   },
   dataBody: {
-    position: 'absolute',
+    ...Platform.select({
+      web: {
+        position: 'absolute',
 
-    width: '80%',
-    height: '60%',
-    top: '5%',
+        width: '80%',
+        height: '60%',
+        top: '5%',
+      },
+      default: {
+        position: 'absolute',
+        // borderWidth: 1,
+        width: '80%',
+        height: '60%',
+        top: '10%',
+      },
+    }),
   },
   Data: {
-    fontSize: 13,
-    fontWeight: 700,
-
-    margin: 3,
+    ...Platform.select({
+      web: {
+        fontSize: 15,
+        fontWeight: '700',
+        color: 'black',
+        margin: 3,
+      },
+      default: {
+        fontSize: 15,
+        fontWeight: '700',
+        color: 'black',
+        margin: 3,
+      },
+    }),
   },
   Value: {
-    fontSize: 13,
-    fontWeight: 450,
-
-    margin: 3,
+    ...Platform.select({
+      web: {
+        fontSize: 13,
+        fontWeight: '400',
+        margin: 3,
+      },
+      default: {
+        fontSize: 13,
+        fontWeight: '400',
+        margin: 3,
+      },
+    }),
   },
   switchContainer: {
-    // borderWidth: 1,
-    width: '80%',
-    top: '28%',
-    height: '20%',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
+    ...Platform.select({
+      web: {
+        width: '80%',
+        top: '28%',
+        height: '20%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+      },
+      default: {
+        // borderWidth: 1,
+        width: '80%',
+        top: '30%',
+        height: '13%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+      },
+    }),
   },
   cancelButton: {
     position: 'relative',
     left: '30%',
-    bottom: '25%',
+    bottom: '22%',
     borderWidth: 1,
     width: '30%',
     height: '13%',
@@ -98,21 +139,23 @@ const styles = StyleSheet.create({
     borderColor: 'orange',
     backgroundColor: 'white',
   },
+
   cancelText: {
     color: 'orange',
-    fontWeight: 600,
+    fontWeight: '600',
   },
   modelCloseButton: {
     backgroundColor: 'red',
     position: 'relative',
-    width: '20%',
-    bottom: '51%',
+    width: '10%',
+    bottom: '60%',
     left: '39%',
   },
 
   checkInText: {
     fontSize: 16,
-    fontWeight: 650,
+    fontWeight: '600',
+    color: 'black',
   },
 });
 export default CheckInOut;
